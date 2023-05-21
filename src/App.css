@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #ffffff!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+a {
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.link {
+    cursor: pointer;
+}
+.container {
+    width: 1170px;
+    margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.ant-card-meta-description > pre {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-width: 100%;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.paddingTopHeader {
+    padding-top: 94px;
+}
+
+.ant-modal-title {
+    color: #603612!important;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: #ffffff!important;
+    border-radius: 16px;
+    background-color: #603612;
+}
+
+.ant-form-item-required {
+    color: #603612!important;
+}
+
+.ant-form-item-required::before {
+    content: '' !important;
+}
+
+@media (max-width: 1240px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 }
