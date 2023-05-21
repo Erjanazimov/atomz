@@ -54,6 +54,7 @@ function App() {
                       rules={[{ required: true, message: 'Заполните email' }]}
                   >
                       <Input />
+
                   </Form.Item>
                   <Form.Item
                       label="Коментарии"
