@@ -16,6 +16,7 @@ const KofeFried = () => {
     if (contextState.loading){
         return <Loading/>
     }
+
     return (
         <div className={`${b()} container`}>
             <h1>Обжареное кофе</h1>
