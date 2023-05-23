@@ -1,22 +1,29 @@
-import React, {FC} from 'react';
+import React, {FC, useContext, useEffect} from 'react';
 import Scroll from "../../components/Scroll/Scroll";
 import About from "../../components/About/About";
 import News from "../../components/News/News";
-import Contacts from "../../components/Contacts/Contacts";
-import Footer from "../../components/Footer/Footer";
-import {newsData} from "../../utils/constant";
+import {Context} from "../../context/contexts";
+import {Spin} from "antd";
 
 interface MainProps {
     onOpen: () => void
 }
 const Main:FC<MainProps> = ({onOpen}) => {
+    const {getNews, contextState} = useContext(Context);
+    useEffect(() => {
+        getNews();
+    }, []);
+
+    if (contextState.loading){
+        return  <div className="example">
+            <Spin />
+        </div>
+    }
     return (
         <>
             <Scroll/>
             <About/>
-            <News data={newsData}/>
-            <Contacts onOpen={onOpen}/>
-            <Footer/>
+            <News data={contextState.news.results} numberSlice={4}/>
         </>
     );
 };

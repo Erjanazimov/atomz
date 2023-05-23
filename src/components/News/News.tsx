@@ -3,13 +3,15 @@ import bem from "easy-bem";
 import './_news.scss';
 import {Card} from "antd";
 import {useNavigate} from "react-router-dom";
+import {Coffee} from "../../context/interfaces";
 const { Meta } = Card;
 
 interface NewsProps {
-    data: any[],
-    bool?: boolean
+    data: Coffee[],
+    bool?: boolean,
+    numberSlice: number
 }
-const News:FC<NewsProps> = ({data, bool = true}) => {
+const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
     const b = bem('News');
     const push = useNavigate();
     return (
@@ -25,18 +27,19 @@ const News:FC<NewsProps> = ({data, bool = true}) => {
                 </> : null
             }
             <div className={b('content')}>
-                {data.slice(0, 4).map((item) => {
+                {data.slice(0, numberSlice).map((item) => {
                     return   <Card
                         style={{
+                            width: 320,
                             height: 340
                     }
                         }
                         onClick={() => push(`/info/${item.id}`)}
                         key={item.id}
                         hoverable
-                        cover={<img className='img' alt="example" src={item.images} />}
+                        cover={<img className='img' alt="example" src={item.image} />}
                     >
-                        <Meta title={item.title} description={item.description}/>
+                        <Meta title={item.header} description={item.description}/>
                     </Card>
                 })}
             </div>

@@ -1,17 +1,25 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import './_kofeZelenyy.scss';
 import bem from "easy-bem";
 import News from "../../components/News/News";
-import {newsData} from "../../utils/constant";
+import {Context} from "../../context/contexts";
+import Loading from "../../components/Loading/Loading";
 
 const KofeZelenyy = () => {
     const b = bem('KofeZelenyy');
-    const filter = newsData.filter((item) => item.kofe === 1)
+    const {contextState, getNews} = useContext(Context);
+    useEffect(() => {
+        getNews();
+    }, []);
+
+    if (contextState.loading){
+        return <Loading/>
+    }
     return (
         <>
             <div className={`${b()} container`}>
                 <h1>Зелёный кофе</h1>
-                <News data={filter} bool={false}/>
+                <News data={contextState.news.results} bool={false} numberSlice={40}/>
             </div>
         </>
     );

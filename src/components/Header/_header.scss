@@ -66,6 +66,13 @@
       font-size: 18px;
     }
 
+    > a:hover{
+      border-bottom: 1px solid #603612;
+    }
+
+    .tel {
+      float: right;
+    }
     .tel:hover {
       border-bottom: 1px solid #603612;
     }
@@ -110,7 +117,7 @@
   outline: none;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1130px) {
   .Header {
     &__list {
       display: none;

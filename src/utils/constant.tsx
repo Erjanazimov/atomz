@@ -3,32 +3,7 @@ export const newsData = [
         id: 1,
         title: 'Зеленое кофе Vietnam',
         kofe: 1,
-        description: <pre>
-            {'Vietnam 🇻🇳\n' +
-                'Robusta Gr 1, scr 18: 4$\n' +
-                'Robusta Gr 1, scr 18 Wetpolished: 4,1$\n' +
-                '\n' +
-                'Колумбия 🇨🇴 \n' +
-                'Колумбия Супремо: 9,8$\n' +
-                'Колумбия Эксельсо: 9,1$\n' +
-                '\n' +
-                'Уганда 🇺🇬 \n' +
-                'Уганда Другар: 6,3$\n' +
-                '\n' +
-                'India 🇮🇳 \n' +
-                'Arabica plantation AA: 8,9$\n' +
-                'Arabica plantation C: 8,2$\n' +
-                'Arabica plantation A: 8,9$\n' +
-                'Arabica plantation B: 8,6$\n' +
-                'Robusta cherry AA: 5,15$\n' +
-                'Robusta cherry AB: 5$\n' +
-                '\n' +
-                'Brazil 🇧🇷 \n' +
-                'Brazil Santos 17/18 GC: 6,2$\n' +
-                'Brazil Mogiana 17/18 GC: 7,3$\n' +
-                'Brazil Santos 17/18 FC 6,5 $\n' +
-                'курс= ЦБ'}
-        </pre>,
+        description: '',
         images: 'https://nyamkin.ru/images/recepts/medium/5f6f180f146f2.jpg'
     },
     {

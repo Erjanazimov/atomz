@@ -1,6 +1,5 @@
 import React from 'react';
 import './_info.scss';
-import Footer from "../Footer/Footer";
 import bem from "easy-bem";
 import {useParams} from "react-router-dom";
 import {newsData} from "../../utils/constant";
@@ -21,7 +20,6 @@ const Info = () => {
                     {infoRender?.description}
                 </p>
             </div>
-            <Footer/>
         </div>
     );
 };

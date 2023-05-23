@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import KofeZelenyy from "./containers/KofeZelenyy/KofeZelenyy";
 import KofeFried from "./containers/KofeFried/KofeFried";
 import NewsPage from "./containers/NewsPage/NewsPage";
+import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
                   <Route path='/info/:id' element={<Info/>} />
               </Routes>
           </div>
+          <Contacts onOpen={() => setOpen(true)}/>
+          <Footer/>
           <Modal
               open={open}
               onCancel={() => setOpen(false)}

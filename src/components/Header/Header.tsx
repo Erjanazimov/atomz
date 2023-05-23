@@ -48,11 +48,13 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                         <li><Link to='/kofe-zelenyy'>Зеленое Кофе</Link></li>
                         <li><Link to='/kofe-fried'>Обжареное Кофе</Link></li>
                         <li><Link to='/news'>Новости</Link></li>
+                        <li><a href='#contact'>Контакты</a></li>
                         <li><a href='#' onClick={onOpen}>Связаться</a></li>
                     </ul>
                 </div>
                 <div className={b('contact')}>
-                    <a href='tel:+74953635285'>+74953635285</a>
+                    <a href='tel:+74953635285'>+74953635285</a>,
+                    <a href='tel:88006005975'> 88006005975</a>
                     <br/>
                     <a href="mailto:info@atomzcoffee.ru" className='tel'>info@atomzcoffee.ru</a>
                 </div>
@@ -72,9 +74,10 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                     <p><Link to='/kofe-zelenyy' onClick={() => setOpen(false)}>Зеленое Кофе</Link></p>
                     <p><Link to='/kofe-fried' onClick={() => setOpen(false)}>Обжареное Кофе</Link></p>
                     <p><Link to='/news' onClick={() => setOpen(false)}>Новости</Link></p>
+                    <p><a href='#contact' onClick={() => setOpen(false)}>Контакты</a></p>
                     <p><a href='#' onClick={onOpen}>Связаться</a></p>
-                    <p><a href='#' onClick={() => setOpen(false)}>WhatsApp</a></p>
-                    <p><a href='#' onClick={() => setOpen(false)}>Telegram</a></p>
+                    <p><a target="_blank"  href='https://wa.me/89663223374' onClick={() => setOpen(false)}>WhatsApp</a></p>
+                    <p><a target="_blank"  href='https://t.me/Atomzcoffee' onClick={() => setOpen(false)}>Telegram</a></p>
                 </div>
                 <div onClick={() => setOpen(false)} className={b('close')}>
                     <CloseOutlined style={{
