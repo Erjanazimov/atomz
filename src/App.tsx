@@ -25,7 +25,7 @@ function App() {
           <Header onOpen={() => setOpen(true)}/>
           <div className='paddingTopHeader'>
               <Routes>
-                  <Route path='/' element={<Main onOpen={() => setOpen(true)}/>} />
+                  <Route path='/' element={<Main/>} />
                   <Route path='/kofe-zelenyy' element={<KofeZelenyy/>} />
                   <Route path='/kofe-fried' element={<KofeFried/>} />
                   <Route path='/news' element={<NewsPage/>} />

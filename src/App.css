@@ -22,7 +22,7 @@ a {
     margin: 0 auto;
 }
 
-.ant-card-meta-description > pre {
+.ant-card-meta-description  {
     -webkit-box-orient: vertical;
     display: -webkit-box;
     max-width: 100%;
