@@ -1,7 +1,7 @@
 import {EnumType} from "./enum";
 import {Coffee} from "./interfaces";
 
-export const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS} = EnumType
+export const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS, CLEAR_NEWS} = EnumType
 export type Actions = {
     type: typeof GET_NEWS,
     payload: {
@@ -16,4 +16,6 @@ export type Actions = {
 } | {
     type: typeof ERRORS_NEWS,
     payload: any
+} | {
+    type: typeof CLEAR_NEWS,
 }

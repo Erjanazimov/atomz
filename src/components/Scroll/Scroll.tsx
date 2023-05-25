@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useReducer } from 'react';
+import React, {useRef, useEffect, useReducer, useContext} from 'react';
 import './_scroll.scss';
 import {useNavigate} from "react-router-dom";
 import zeleny from '../../assets/koffee/OLG.jpeg';
@@ -23,7 +23,7 @@ type AppAction = { type: 'NEXT' } | { type: 'PREV' };
 const slides: Slide[] = [
     {
         id: 1,
-        title: 'Зеленое кофе',
+        title: 'Зеленый кофе',
         subtitle: '',
         description: 'Проснись силой зеленого кофе: энергия, вдохновение, забота о тебе и природе!"',
         image: zeleny,
@@ -31,7 +31,7 @@ const slides: Slide[] = [
     },
     {
         id: 2,
-        title: 'Обжаренное кофе ',
+        title: 'Обжаренные зерена ',
         subtitle: '',
         description: 'Потрясающий вкус, горячая страсть: Ожаренный кофе — пробуждение силы и наслаждение каждым глотком!',
         image: black,
@@ -114,9 +114,12 @@ function Slide({ slide, offset }:any) {
     const active = offset === 0 ? true : null;
     const ref = useTilt(active);
     const push = useNavigate();
+    const handlerNews = () => {
+        push(slide.link);
+    }
     return (
         <div
-            onClick={() => push(slide.link)}
+            onClick={handlerNews}
             ref={ref}
             className="slide"
             data-active={active}

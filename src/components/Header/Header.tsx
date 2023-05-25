@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useContext, useEffect, useState} from 'react';
 import bem from "easy-bem";
 import logo from '../../assets/images/logo.png';
 import './_header.scss';
@@ -7,6 +7,7 @@ import {Drawer, Dropdown, MenuProps, Space} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {getCurrentDate} from "../../utils/constant";
+import {Context} from "../../context/contexts";
 
 interface HeaderProps {
     onOpen: () => void
@@ -32,6 +33,10 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
 
     const onClose = () => {
         setOpen(false);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
     return (
         <header className={`${b()}`}>
@@ -45,9 +50,9 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                         <span>{getCurrentDate()}</span>
                     </div>
                     <ul className={b('list')}>
-                        <li><Link to='/kofe-zelenyy'>Зеленое Кофе</Link></li>
-                        <li><Link to='/kofe-fried'>Обжареное Кофе</Link></li>
-                        <li><Link to='/news'>Новости</Link></li>
+                        <li><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></li>
+                        <li><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></li>
+                        <li><Link to='/news' onClick={onClose}>Новости</Link></li>
                         <li><a href='#contact'>Контакты</a></li>
                         <li><a href='#' onClick={onOpen}>Связаться</a></li>
                     </ul>
@@ -71,10 +76,10 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
 
                 </div>
                 <div className={b('menu_nav')}>
-                    <p><Link to='/kofe-zelenyy' onClick={() => setOpen(false)}>Зеленое Кофе</Link></p>
-                    <p><Link to='/kofe-fried' onClick={() => setOpen(false)}>Обжареное Кофе</Link></p>
-                    <p><Link to='/news' onClick={() => setOpen(false)}>Новости</Link></p>
-                    <p><a href='#contact' onClick={() => setOpen(false)}>Контакты</a></p>
+                    <p><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></p>
+                    <p><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></p>
+                    <p><Link to='/news' onClick={onClose}>Новости</Link></p>
+                    <p><a href='#contact' onClick={onClose}>Контакты</a></p>
                     <p><a href='#' onClick={onOpen}>Связаться</a></p>
                     <p><a target="_blank"  href='https://wa.me/89663223374' onClick={() => setOpen(false)}>WhatsApp</a></p>
                     <p><a target="_blank"  href='https://t.me/Atomzcoffee' onClick={() => setOpen(false)}>Telegram</a></p>

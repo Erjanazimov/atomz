@@ -4,14 +4,13 @@ import bem from "easy-bem";
 import News from "../../components/News/News";
 import {Context} from "../../context/contexts";
 import Loading from "../../components/Loading/Loading";
+import NotFound from "../../components/NotFound/NotFound";
 
 const KofeZelenyy = () => {
     const b = bem('KofeZelenyy');
     const {contextState, getNews} = useContext(Context);
     useEffect(() => {
-        if (!contextState.news.results.length){
-            getNews();
-        }
+        getNews(1);
     }, []);
 
     if (contextState.loading){
@@ -30,7 +29,10 @@ const KofeZelenyy = () => {
                     Наша цель - установить долгосрочное партнерство с нашими заказчиками, основанное на взаимовыгодном сотрудничестве и высоком качестве продукции.
                     Обращайтесь к нам для организации поставок зеленого кофе на ваше предприятие.
                 </p>
-                <News data={contextState.news.results} bool={false} numberSlice={40}/>
+                {contextState.news.results.length ?
+                    <News data={contextState.news.results} bool={false} numberSlice={40}/>
+                    : <NotFound/>
+                }
             </div>
         </>
     );

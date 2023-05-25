@@ -14,6 +14,13 @@ interface NewsProps {
 const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
     const b = bem('News');
     const push = useNavigate();
+    const oncClick = () => {
+        push('/news');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
     return (
         <div className={b('border')}>
         <div className={`${b()} container`}>
@@ -22,7 +29,7 @@ const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
                     <h1>Новости</h1>
                     <div className={b('btn')}>
                         <h2>Последние новости</h2>
-                        <button onClick={() => push('/news')}>Все новости</button>
+                        <button onClick={oncClick}>Все новости</button>
                     </div>
                 </> : null
             }

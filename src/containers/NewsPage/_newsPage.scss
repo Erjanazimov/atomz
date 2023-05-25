@@ -1,9 +1,18 @@
 .NewsPage {
   > h1 {
     font-weight: 500;
-    color: #279439;
+    color: #603612;
     font-size: 28px;
     padding-top: 20px;
     margin-bottom: -10px;
+  }
+
+  > p {
+    padding-top: 10px;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: -10px;
+    color: #555751;
+    line-height: 1.3;
   }
 }

@@ -2,7 +2,7 @@ import {TypesState} from "./interfaces";
 import {Actions} from "./types";
 import {EnumType} from "./enum";
 
-const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS} = EnumType;
+const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS, CLEAR_NEWS} = EnumType;
 export const reducers = (state: TypesState, action: Actions) => {
     switch (action.type){
         case GET_NEWS:
@@ -21,6 +21,18 @@ export const reducers = (state: TypesState, action: Actions) => {
             return {
                 ...state,
                 errors: action.payload
+            }
+        case CLEAR_NEWS:
+            return {
+                ...state,
+                news: {
+                    count: 0,
+                    results: [],
+                    previous: null,
+                    next: null
+                },
+                loading: false,
+                errors: null
             }
         default:
             return {

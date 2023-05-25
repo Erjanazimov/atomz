@@ -4,10 +4,11 @@ import {TypesState} from "./interfaces";
 import {reducers} from "./reducers";
 import axios from "axios";
 
-const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS} = EnumType;
+const {GET_NEWS, LOADING_NEWS, ERRORS_NEWS, CLEAR_NEWS} = EnumType;
 interface ContextStateDefault {
     contextState: TypesState,
-    getNews: () => void
+    getNews: (id: number) => void,
+    clearNews: () => void
 }
 
 export const ContextDefault: TypesState  = {
@@ -23,25 +24,31 @@ export const ContextDefault: TypesState  = {
 
 export const Context = createContext<ContextStateDefault>({
     contextState: ContextDefault,
-    getNews: () => null
+    getNews: () => null,
+    clearNews: () => null
 })
 
 const ContextProvider = ({ children }: any) => {
     const [contextState, dispatch] = useReducer(reducers, ContextDefault);
 
-    const getNews = async () => {
+    const getNews = async (id: number) => {
         dispatch({type: LOADING_NEWS, payload: true});
         try {
-            const {data} = await axios.get('https://bilal312.pythonanywhere.com/api/');
+            const {data} = await axios.get(`https://bilal312.pythonanywhere.com/api/${id ? `?type_coffee=${id}` : ''}`);
             dispatch({type: GET_NEWS, payload: data});
             dispatch({type: LOADING_NEWS, payload: false});
         } catch (e){
             dispatch({type: LOADING_NEWS, payload: false});
         }
     }
+
+    const clearNews = () => {
+        dispatch({type: CLEAR_NEWS})
+    }
     const authContextData = {
         contextState,
-        getNews
+        getNews,
+        clearNews
     };
     return (
         <Context.Provider value={authContextData}>

@@ -8,9 +8,7 @@ import Loading from "../../components/Loading/Loading";
 const Main= () => {
     const {getNews, contextState} = useContext(Context);
     useEffect(() => {
-        if (!contextState.news.results.length){
-            getNews();
-        }
+        getNews(0);
     }, []);
     return (
         <>
