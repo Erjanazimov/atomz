@@ -1,9 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 import bem from "easy-bem";
 import './_news.scss';
 import {Card} from "antd";
 import {useNavigate} from "react-router-dom";
 import {Coffee} from "../../context/interfaces";
+import {Context} from "../../context/contexts";
+import ReactHtmlParser from "react-html-parser";
 const { Meta } = Card;
 
 interface NewsProps {
@@ -13,6 +15,7 @@ interface NewsProps {
 }
 const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
     const b = bem('News');
+    const {} = useContext(Context);
     const push = useNavigate();
     const oncClick = () => {
         push('/news');
@@ -23,7 +26,7 @@ const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
     }
     return (
         <div className={b('border')}>
-        <div className={`${b()} container`}>
+        <div className={`${b()}`}>
             {bool ?
                 <>
                     <h1>Новости</h1>
@@ -36,17 +39,16 @@ const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
             <div className={b('content')}>
                 {data.slice(0, numberSlice).map((item) => {
                     return   <Card
-                        style={{
-                            width: 320,
-                            height: 340
-                    }
-                        }
+                        className={b('news_block')}
                         onClick={() => push(`/info/${item.id}`)}
                         key={item.id}
                         hoverable
                         cover={<img className='img' alt="example" src={item.image} />}
                     >
-                        <Meta title={item.header} description={item.description}/>
+                        <Meta title={item.header}/>
+                        <div className={b('description_title')}>
+                            {ReactHtmlParser(item?.description ? `<pre>${item.description}</pre>` : '')}
+                        </div>
                     </Card>
                 })}
             </div>

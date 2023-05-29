@@ -10,8 +10,8 @@ import Header from "./components/Header/Header";
 import KofeZelenyy from "./containers/KofeZelenyy/KofeZelenyy";
 import KofeFried from "./containers/KofeFried/KofeFried";
 import NewsPage from "./containers/NewsPage/NewsPage";
-import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
+import Contact from "./containers/Contact/Contact";
 
 function App() {
     const [open, setOpen] = useState(false);
@@ -25,14 +25,14 @@ function App() {
           <Header onOpen={() => setOpen(true)}/>
           <div className='paddingTopHeader'>
               <Routes>
-                  <Route path='/' element={<Main/>} />
+                  <Route path='/' element={<Main setOpen={() => setOpen(true)}/>} />
                   <Route path='/kofe-zelenyy' element={<KofeZelenyy/>} />
                   <Route path='/kofe-fried' element={<KofeFried/>} />
                   <Route path='/news' element={<NewsPage/>} />
                   <Route path='/info/:id' element={<Info/>} />
+                  <Route path='/contact' element={<Contact onOpen={() => setOpen(true)}/>}/>
               </Routes>
           </div>
-          <Contacts onOpen={() => setOpen(true)}/>
           <Footer/>
           <Modal
               open={open}

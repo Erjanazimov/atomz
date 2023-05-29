@@ -53,7 +53,7 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                         <li><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></li>
                         <li><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></li>
                         <li><Link to='/news' onClick={onClose}>Новости</Link></li>
-                        <li><a href='#contact'>Контакты</a></li>
+                        <li><Link to='/contact'>Контакты</Link></li>
                         <li><a href='#' onClick={onOpen}>Связаться</a></li>
                     </ul>
                 </div>
@@ -79,9 +79,9 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                     <p><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></p>
                     <p><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></p>
                     <p><Link to='/news' onClick={onClose}>Новости</Link></p>
-                    <p><a href='#contact' onClick={onClose}>Контакты</a></p>
+                    <p><Link to='/contact' onClick={onClose}>Контакты</Link></p>
                     <p><a href='#' onClick={onOpen}>Связаться</a></p>
-                    <p><a target="_blank"  href='https://wa.me/89663223374' onClick={() => setOpen(false)}>WhatsApp</a></p>
+                    <p><a target="_blank"  href='https://wa.me/79663223374' onClick={() => setOpen(false)}>WhatsApp</a></p>
                     <p><a target="_blank"  href='https://t.me/Atomzcoffee' onClick={() => setOpen(false)}>Telegram</a></p>
                 </div>
                 <div onClick={() => setOpen(false)} className={b('close')}>

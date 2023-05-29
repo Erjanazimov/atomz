@@ -22,16 +22,6 @@ a {
     margin: 0 auto;
 }
 
-.ant-card-meta-description  {
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    max-width: 100%;
-    height: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: break-spaces;
-}
-
 .paddingTopHeader {
     padding-top: 94px;
 }

@@ -17,6 +17,11 @@ export interface TypesState {
         previous: null | string,
         results: Coffee[];
     },
+    info: {
+        loading: boolean,
+        errors: any,
+        results: Coffee | null
+    }
     loading: boolean,
     errors: any
 }

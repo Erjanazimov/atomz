@@ -1,24 +1,39 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import './_info.scss';
 import bem from "easy-bem";
 import {useParams} from "react-router-dom";
-import {newsData} from "../../utils/constant";
+import {Context} from "../../context/contexts";
+import Loading from "../Loading/Loading";
+import ReactHtmlParser from 'react-html-parser';
 
 const Info = () => {
     const b = bem('Info');
     const {id} = useParams();
+    const {contextState, infoNews} = useContext(Context);
 
-    const infoRender = newsData.find((item) => item.id === Number(id))
+    useEffect(() => {
+        if (!contextState.news.results.length && id){
+            infoNews(id)
+        }
+    }, [])
+
+
+    const infoRender = contextState.news.results.find((item) => item.id === Number(id)) || contextState.info.results;
+
+    if (contextState.info.loading){
+        return <Loading/>;
+    }
     return (
         <div className={b()}>
             <div className={`${b('section')} container`}>
-                <h1>{infoRender?.title}</h1>
+                <h1>{infoRender?.header}</h1>
                 <div>
-                    <img src={infoRender?.images} alt='images'/>
+                    <img src={infoRender?.image} alt='images'/>
                 </div>
-                <p>
-                    {infoRender?.description}
-                </p>
+                <div className={b('description')}>
+                    {ReactHtmlParser(infoRender?.description ? `<pre>${infoRender.description}</pre>` : '')}
+                </div>
+
             </div>
         </div>
     );
