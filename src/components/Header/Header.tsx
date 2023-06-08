@@ -50,8 +50,8 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
                         <span>{getCurrentDate()}</span>
                     </div>
                     <ul className={b('list')}>
-                        <li><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></li>
-                        <li><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></li>
+                        <li><Link to='/info/4' onClick={onClose}>Зеленый кофе</Link></li>
+                        <li><Link to='/info/3' onClick={onClose}>Обжаренный кофе</Link></li>
                         <li><Link to='/news' onClick={onClose}>Новости</Link></li>
                         <li><Link to='/contact'>Контакты</Link></li>
                         <li><a href='#' onClick={onOpen}>Связаться</a></li>
@@ -76,8 +76,8 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
 
                 </div>
                 <div className={b('menu_nav')}>
-                    <p><Link to='/kofe-zelenyy' onClick={onClose}>Зеленое Кофе</Link></p>
-                    <p><Link to='/kofe-fried' onClick={onClose}>Обжареное Кофе</Link></p>
+                    <p><Link to='/info/4' onClick={onClose}>Зеленый кофе</Link></p>
+                    <p><Link to='/info/3' onClick={onClose}>Обжаренный кофе</Link></p>
                     <p><Link to='/news' onClick={onClose}>Новости</Link></p>
                     <p><Link to='/contact' onClick={onClose}>Контакты</Link></p>
                     <p><a href='#' onClick={onOpen}>Связаться</a></p>

@@ -5,7 +5,6 @@ import {Card} from "antd";
 import {useNavigate} from "react-router-dom";
 import {Coffee} from "../../context/interfaces";
 import {Context} from "../../context/contexts";
-import ReactHtmlParser from "react-html-parser";
 const { Meta } = Card;
 
 interface NewsProps {
@@ -40,15 +39,18 @@ const News:FC<NewsProps> = ({data, bool = true, numberSlice = 4}) => {
                 {data.slice(0, numberSlice).map((item) => {
                     return   <Card
                         className={b('news_block')}
-                        onClick={() => push(`/info/${item.id}`)}
+                        onClick={() => {
+                            push(`/info/${item.id}`);
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }}
                         key={item.id}
                         hoverable
                         cover={<img className='img' alt="example" src={item.image} />}
                     >
                         <Meta title={item.header}/>
-                        <div className={b('description_title')}>
-                            {ReactHtmlParser(item?.description ? `<pre>${item.description}</pre>` : '')}
-                        </div>
                     </Card>
                 })}
             </div>

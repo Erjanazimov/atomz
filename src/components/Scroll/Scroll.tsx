@@ -27,15 +27,15 @@ const slides: Slide[] = [
         subtitle: '',
         description: 'Проснись силой зеленого кофе: энергия, вдохновение, забота о тебе и природе!"',
         image: zeleny,
-        link: '/kofe-zelenyy'
+        link: '/info/4'
     },
     {
         id: 2,
-        title: 'Обжаренные зерена ',
+        title: 'Обжаренный кофе',
         subtitle: '',
         description: 'Потрясающий вкус, горячая страсть: Ожаренный кофе — пробуждение силы и наслаждение каждым глотком!',
         image: black,
-        link: '/kofe-fried'
+        link: '/info/3'
     },
     {
         id: 3,

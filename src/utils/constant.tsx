@@ -74,6 +74,25 @@ export const newsData = [
     },
 ]
 
+interface Item {
+    name: string;
+    price: string;
+    img: string;
+}
+
+export function parseData(data: string | undefined): Item[] {
+    try {
+        if (data){
+            const parsedData: Item[] = JSON.parse(data);
+            return parsedData;
+        }
+        return [];
+    } catch (error) {
+        console.error('Ошибка при парсинге данных:', error);
+        return [];
+    }
+}
+
 export function getCurrentDate(): string {
     const now = new Date();
     const day = String(now.getDate()).padStart(2, '0');

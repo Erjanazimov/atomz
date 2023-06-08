@@ -23,7 +23,7 @@ const Contacts:FC<contactsProps> = ({onOpen}) => {
 
     const defaultState = {
         center: [55.706447, 37.657520],
-        zoom: 10,
+        zoom: 18,
     };
     return (
         <div id='contact' className={`${b()} container`}>
@@ -35,7 +35,7 @@ const Contacts:FC<contactsProps> = ({onOpen}) => {
                             width: windowWidth > 1100 ? 630 : windowWidth - 40,
                             height: 480
                         }}>
-                            <Placemark geometry={[55.684758, 37.738521]} />
+                            <Placemark geometry={[55.706447, 37.657520]} />
                         </Map>
                     </YMaps>
                 </div>
@@ -44,12 +44,12 @@ const Contacts:FC<contactsProps> = ({onOpen}) => {
                         <p>
                             <b>
                                 Адрес:
-                            </b> 115280 г. Москва автозаводская 11 4 этаж 408 офис
+                            </b> 115280 г. Москва автозаводская, 11, 4 этаж, 408 офис
                         </p>
                         <p>
                             <b>
                                 Часы работы:
-                            </b> с 07:00 до 18:00 ежедневно (кроме
+                            </b> с 09:00 до 18:00 ежедневно (кроме
                             выходных и праздники)
                         </p>
                         <p>

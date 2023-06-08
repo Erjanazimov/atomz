@@ -15,6 +15,7 @@ const Main:FC<MainProps> = ({setOpen}) => {
     useEffect(() => {
         getNews(0);
     }, []);
+
     return (
         <>
             <Scroll/>
