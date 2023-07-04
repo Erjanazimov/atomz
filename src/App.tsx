@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Main from "./containers/Main/Main";
-import { Routes } from 'react-router-dom';
+import {Routes, useLocation} from 'react-router-dom';
 import { Route } from 'react-router';
 import {Button, Form, Input, message, Modal} from "antd";
 import TextArea from "antd/es/input/TextArea";
@@ -12,16 +12,30 @@ import KofeFried from "./containers/KofeFried/KofeFried";
 import NewsPage from "./containers/NewsPage/NewsPage";
 import Footer from "./components/Footer/Footer";
 import Contact from "./containers/Contact/Contact";
+import {helmetData} from "./utils/constant";
 
 function App() {
     const [open, setOpen] = useState(false);
-
+    const {pathname} = useLocation();
     const onFinish = () => {
         message.success('Успешно отправлено');
         setOpen(false);
     }
+
+    const renderHelmet = () => {
+        if (pathname.includes('4')) {
+            return helmetData('Зеленый кофе оптом в  Москве', 'Зеленый кофе оптом купить в России и СНГ с доставкой. ', 'Зеленый кофе оптом купить в России и СНГ с доставкой.')
+        }
+
+        if (pathname.includes('3')) {
+            return helmetData('Обжаренный кофе оптом в Москве', 'Обжаренный кофе для кофеен, ресторанов с бесплатной доставкой', 'Обжаренный кофе для кофеен, ресторанов с бесплатной доставкой')
+        }
+
+        return helmetData('Atomz Coffee | Зеленый кофе оптом в России и СНГ', 'Зеленый кофе оптом в России и СНГ', 'Зеленый кофе оптом купить в России и СНГ с доставкой.')
+    }
   return (
       <>
+          {renderHelmet()}
           <Header onOpen={() => setOpen(true)}/>
           <div className='paddingTopHeader'>
               <Routes>

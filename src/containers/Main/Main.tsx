@@ -6,6 +6,7 @@ import {Context} from "../../context/contexts";
 import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
 import Contacts from "../../components/Contacts/Contacts";
+import {Helmet} from "react-helmet-async";
 
 interface MainProps {
     setOpen: () => void

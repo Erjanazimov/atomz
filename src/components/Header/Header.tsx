@@ -3,11 +3,10 @@ import bem from "easy-bem";
 import logo from '../../assets/images/logo.png';
 import './_header.scss';
 import {CloseOutlined, MenuOutlined} from "@ant-design/icons";
-import {Drawer, Dropdown, MenuProps, Space} from "antd";
+import {Drawer, Space} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {getCurrentDate} from "../../utils/constant";
-import {Context} from "../../context/contexts";
 
 interface HeaderProps {
     onOpen: () => void
@@ -20,8 +19,11 @@ const Header:FC<HeaderProps> = ({onOpen}) => {
     const [open, setOpen] = useState(false);
 
     const convertGet = async () => {
-        const resp: {data: {Valute:{USD: {Value: string}}}} = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
-        setCourse(resp.data.Valute.USD.Value)
+        try {
+            const resp: {data: {Valute:{USD: {Value: string}}}} = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
+            setCourse(resp.data.Valute.USD.Value)
+        } catch (e) {}
+
     }
     useEffect(() => {
         convertGet();

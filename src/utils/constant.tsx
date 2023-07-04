@@ -1,3 +1,6 @@
+import {Helmet} from "react-helmet";
+import React from "react";
+
 export const newsData = [
     {
         id: 1,
@@ -100,4 +103,12 @@ export function getCurrentDate(): string {
     const year = now.getFullYear();
     const formattedDate = `Сегодня, ${day}.${month}.${year}`;
     return formattedDate;
+}
+
+export const helmetData = (title: string, description: string, keywords: string) => {
+    return  <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+    </Helmet>
 }

@@ -1,9 +1,11 @@
 import React, {useContext, useEffect} from 'react';
 import './_kofeZelenyy.scss';
 import bem from "easy-bem";
-import News from "../../components/News/News";
+// @ts-ignore
+import { Helmet } from 'react-helmet';
 import {Context} from "../../context/contexts";
 import Loading from "../../components/Loading/Loading";
+import News from "../../components/News/News";
 import NotFound from "../../components/NotFound/NotFound";
 
 const KofeZelenyy = () => {
@@ -17,7 +19,8 @@ const KofeZelenyy = () => {
         return <Loading/>
     }
     return (
-        <>
+        <div>
+            <body>
             <div className={`${b()} container`}>
                 <h1>Зеленый кофе</h1>
                 <p>
@@ -34,7 +37,9 @@ const KofeZelenyy = () => {
                     : <NotFound/>
                 }
             </div>
-        </>
+            </body>
+        </div>
+
     );
 };
 
